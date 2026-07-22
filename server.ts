@@ -17,7 +17,7 @@ app.use(express.json({ limit: '10mb' }));
 // Helper for Gemini AI client initialization
 function getGeminiClient() {
   const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
+  if (!apiKey || apiKey === 'AQ.Ab8RN6ITrFXsMbiXy1Ll_hgQytNb-VSSjn3l2H0KfpqAQAjKWw' || apiKey.trim() === '') {
     throw new Error('GEMINI_API_KEY environment variable is missing.');
   }
   return new GoogleGenAI({ apiKey });
